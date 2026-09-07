@@ -1,7 +1,7 @@
 :root {
   --bg: #070b12;
   --bg-soft: #0f1724;
-  --panel: rgba(18, 24, 34, 0.82);
+  --panel: rgba(10, 15, 22, 0.82);
   --panel-strong: rgba(10, 15, 22, 0.94);
   --line: rgba(255, 255, 255, 0.1);
   --text: #edf4ff;
@@ -200,7 +200,7 @@ img {
 .stats li {
   padding: 18px 18px 14px;
   border-radius: 18px;
-  background: rgba(255,255,255,0.02);
+  background: var(--panel);
   border: 1px solid var(--line);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
 }
@@ -232,7 +232,7 @@ img {
   transform-style: preserve-3d;
   transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow: var(--shadow);
-  background: linear-gradient(180deg, rgba(11, 17, 25, 0.78), rgba(11, 17, 25, 0.55));
+  background: var(--panel);
   border: 1px solid rgba(255,255,255,0.08);
   overflow: hidden;
 }
@@ -398,7 +398,7 @@ section {
 }
 
 .future-card {
-  background: linear-gradient(180deg, rgba(116, 144, 255, 0.06), rgba(11, 17, 25, 0.9));
+  background: var(--panel);
 }
 
 .timeline {
@@ -469,7 +469,7 @@ section {
 }
 
 .project-card-accent {
-  background: linear-gradient(135deg, rgba(139,233,253,0.16), rgba(124,157,255,0.1));
+  background: var(--panel);
 }
 
 .future-panel {
