@@ -401,76 +401,63 @@ section {
   background: var(--panel);
 }
 
-.timeline {
+.timeline-wrapper {
+  height: 400vh;
   position: relative;
-  display: grid;
-  gap: 28px;
 }
 
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 6px;
+.timeline-sticky {
+  position: sticky;
   top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(180deg, rgba(139,233,253,0.35), rgba(255,255,255,0.05));
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.timeline-container {
+  display: flex;
+  gap: 80px;
+  /* Add padding so the first item can be in the center, and the last item can reach the center */
+  padding: 0 calc(50vw - 210px);
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
 .timeline-item {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  align-items: center;
-  position: relative;
-}
-
-.timeline-item:nth-child(1) {
-  order: 4;
-}
-
-.timeline-item:nth-child(2) {
-  order: 3;
-}
-
-.timeline-item:nth-child(3) {
-  order: 2;
-}
-
-.timeline-item:nth-child(4) {
-  order: 1;
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  box-shadow: 0 0 18px rgba(139,233,253,0.6);
-  z-index: 1;
+  width: 420px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
 }
 
 .time {
   color: var(--primary);
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 0.08em;
-  font-size: 1.05rem;
-  padding-left: 24px;
-  position: relative;
-  z-index: 2;
+  font-size: 3.6rem;
+  text-shadow: 0 0 24px rgba(139,233,253,0.4);
+  text-align: center;
 }
 
 .detail {
-  min-height: 120px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .detail h3 {
-  margin: 0 0 8px;
-  font-size: 1.24rem;
+  margin: 0 0 16px;
+  font-size: 1.6rem;
 }
+
+
 
 .project-card {
   min-height: 220px;
@@ -582,16 +569,5 @@ section {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .timeline::before {
-    left: 108px;
-  }
 
-  .timeline-item {
-    grid-template-columns: 120px 1fr;
-    gap: 24px;
-  }
-
-  .timeline-item::before {
-    left: 102px;
-  }
 }
