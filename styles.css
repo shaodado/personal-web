@@ -24,13 +24,17 @@ html {
 body {
   margin: 0;
   font-family: "Noto Sans TC", "Inter", sans-serif;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.bg-image {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
   background:
     linear-gradient(180deg, rgba(4, 12, 20, 0.32), rgba(4, 12, 20, 0.72)),
     url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1800&q=80") center center / cover no-repeat;
-  background-position: center center;
-  background-attachment: scroll;
-  color: var(--text);
-  line-height: 1.7;
 }
 
 img {
@@ -422,16 +426,16 @@ section {
 
 .edu-timeline-container {
   display: flex;
-  gap: 80px;
-  padding: 0 calc(50vw - 210px);
+  gap: 40px;
+  padding: 0 calc(50vw - min(210px, 40vw));
   will-change: transform;
   transform-style: preserve-3d;
-  opacity: 0; /* Hidden initially, controlled by JS */
-  pointer-events: none; /* Avoid blocking when invisible */
+  opacity: 0;
+  pointer-events: none;
 }
 
 .edu-item {
-  width: 420px;
+  width: min(420px, 80vw);
   flex-shrink: 0;
   display: flex;
   transform-style: preserve-3d;
@@ -482,15 +486,14 @@ section {
 
 .timeline-container {
   display: flex;
-  gap: 80px;
-  /* Add padding so the first item can be in the center, and the last item can reach the center */
-  padding: 0 calc(50vw - 210px);
+  gap: 40px;
+  padding: 0 calc(50vw - min(210px, 40vw));
   will-change: transform;
   transform-style: preserve-3d;
 }
 
 .timeline-item {
-  width: 420px;
+  width: min(420px, 80vw);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -503,7 +506,7 @@ section {
   color: var(--primary);
   font-weight: 900;
   letter-spacing: 0.08em;
-  font-size: 3.6rem;
+  font-size: clamp(2.2rem, 8vw, 3.6rem);
   text-shadow: 0 0 24px rgba(139,233,253,0.4);
   text-align: center;
 }
@@ -518,6 +521,12 @@ section {
 .detail h3 {
   margin: 0 0 16px;
   font-size: 1.6rem;
+}
+
+@media (min-width: 641px) {
+  .edu-timeline-container, .timeline-container {
+    gap: 80px;
+  }
 }
 
 .proj-wrapper {

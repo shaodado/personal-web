@@ -145,7 +145,8 @@ const updateEduSection = () => {
       // Add blur based on distance
       const blurAmount = Math.abs(normalizedDist) * 6; // Max 6px blur at edges
       // Make them come from deeper Z space (e.g., 400 instead of 300)
-      const translateZ = -Math.abs(normalizedDist) * 400;
+      const zDepth = Math.min(400, metrics.windowWidth * 0.6);
+      const translateZ = -Math.abs(normalizedDist) * zDepth;
       
       let cardOpacity = 1 - Math.abs(normalizedDist) * 0.7;
       if (progress >= 0.2 && progress < 0.25) {
@@ -186,7 +187,8 @@ const updateTimelineSection = () => {
     const rotateY = normalizedDist * 45; // slightly sharper rotation 
     const scale = 1 - Math.abs(normalizedDist) * 0.25;
     const blurAmount = Math.abs(normalizedDist) * 6; 
-    const translateZ = -Math.abs(normalizedDist) * 400;
+    const zDepth = Math.min(400, metrics.windowWidth * 0.6);
+    const translateZ = -Math.abs(normalizedDist) * zDepth;
     const opacity = 1 - Math.abs(normalizedDist) * 0.6;
     
     item.style.transform = `translate3d(0, 0, ${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
