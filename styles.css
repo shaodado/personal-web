@@ -569,6 +569,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  position: relative;
 }
 
 .project-card h3 {
@@ -578,6 +579,41 @@ section {
 
 .project-card p {
   font-size: 1.1rem;
+  padding-right: 60px;
+}
+
+.project-link-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 72px;
+  height: 72px;
+  border-radius: 26px;
+  background-color: var(--primary);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px var(--glow);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 10;
+}
+
+.project-link-btn:hover {
+  background-color: var(--text);
+  color: var(--bg);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 28px var(--glow);
+}
+
+.project-link-btn svg {
+  transition: transform 0.3s ease;
+  width: 32px;
+  height: 32px;
+}
+
+.project-link-btn:hover svg {
+  transform: translateX(4px);
 }
 
 .project-card-accent {
