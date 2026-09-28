@@ -243,7 +243,7 @@ img {
 
 .image-flip:hover,
 .image-flip.is-flipped {
-  transform: rotateY(12deg) scale(1.01);
+  transform: scale(1.01);
 }
 
 .photo-card {
@@ -261,6 +261,10 @@ img {
   object-fit: cover;
   display: block;
   filter: grayscale(0.15) contrast(1.08) brightness(0.68);
+}
+
+.back-photo img {
+  object-position: 80% 30%;
 }
 
 .front-photo {
